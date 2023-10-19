@@ -2,6 +2,7 @@
 
 TELEGRAM_TOKEN=
 CHAT_ID=
+USER_AGENT=
 
 # Check if we're online
 if ! ping -c 1 9.9.9.9 >/dev/null 2>&1; then
@@ -31,7 +32,7 @@ while read line; do
   if nc -z $domain_clean $port >/dev/null 2>&1; then
     # If the service is up, and the argument search is specified, do an HTTPS call to the target
     if [ ! -z "$search" ]; then
-      response=$(curl -s -w "\n%{http_code}" https://$domain)
+      response=$(curl -A "$USER_AGENT" -s -w "\n%{http_code}" "https://$domain")
       output=$(echo "$response" | head -n -1)
       http_code=$(echo "$response" | tail -n 1)
 
