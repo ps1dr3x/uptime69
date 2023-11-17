@@ -13,6 +13,11 @@ fi
 
 # Read the list of services
 while read line; do
+  # Skip commentented (starting with #) and empty lines
+  if [[ $line == \#* ]] || [[ -z $line ]]; then
+    continue
+  fi
+
   now=$(date +"%d-%m-%Y_%H:%M:%S")
 
   # Parse the domain, port and optional string to search in the request output

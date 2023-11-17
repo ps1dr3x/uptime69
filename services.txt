@@ -1,3 +1,4 @@
 example.com 80 text in the response
-example2.com 443
+# Lines starting with # are ignored
+# example2.com 443
 example3.com 3000 other text in the response
