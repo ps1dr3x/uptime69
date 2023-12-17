@@ -1,12 +1,23 @@
 #!/bin/bash
 
-TELEGRAM_TOKEN=
-CHAT_ID=
-USER_AGENT=
+now=$(date +"%d-%m-%Y_%H:%M:%S")
+config_file="$(dirname "$0")/config/config.env"
+services_file="$(dirname "$0")/config/services.txt"
+
+if [ ! -f "$config_file" ]; then
+  echo "[$now][ERR] config/config.env does not exist."
+  exit 1
+fi
+
+source "$config_file"
+
+if [ ! -f "$services_file" ]; then
+  echo "[$now][ERR] config/services.txt does not exist."
+  exit 1
+fi
 
 # Check if we're online
 if ! ping -c 1 9.9.9.9 >/dev/null 2>&1; then
-  now=$(date +"%d-%m-%Y_%H:%M:%S")
   echo "[$now] Offline."
   exit 1
 fi
@@ -57,4 +68,4 @@ while read line; do
     message="The service at $domain port $port is down!"
     curl -s -X POST https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage -d chat_id=$CHAT_ID -d text="$message"
   fi
-done < "$(dirname "$0")"/services.txt
+done < "$services_file"
