@@ -16,12 +16,6 @@ if [ ! -f "$services_file" ]; then
   exit 1
 fi
 
-# Check if we're online
-if ! ping -c 1 9.9.9.9 >/dev/null 2>&1; then
-  echo "[$now] Offline."
-  exit 1
-fi
-
 # Read the list of services
 while read line; do
   # Skip commentented (starting with #) and empty lines
@@ -37,6 +31,12 @@ while read line; do
   search=$(echo $line | cut -d' ' -f3-)
 
   echo "[$now] Checking $domain port $port (for ${search:-'nc_only'})"
+
+  # Check if we're online
+  if ! ping -c 1 9.9.9.9 >/dev/null 2>&1; then
+    echo "[$now] Offline."
+    continue
+  fi
 
   # Remove the path from the domain if it exists (for netcat)
   domain_clean=$domain
