@@ -33,7 +33,7 @@ while read line; do
   echo "[$now] Checking $domain port $port (for ${search:-'nc_only'})"
 
   # Check if we're online
-  if ! ping -c 1 9.9.9.9 >/dev/null 2>&1; then
+  if ! nc -z -w 10 9.9.9.9 53 >/dev/null 2>&1; then
     echo "[$now] Offline."
     continue
   fi
