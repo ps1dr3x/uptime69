@@ -1,14 +1,16 @@
 # Uptime 69%
 
-A simple but smart downtime monitoring system, running on your smartphone!
+A simple but effective downtime monitoring system, running on your smartphone!
 
 ## The Idea
 
-In today's world, the one device that we always carry with us is undoubtedly our smartphone. We tend to receive our most important alerts there as well. So, why not use our smartphones to run monitoring scripts directly, instead of relying on additional machines that are not so often within our eyesight and sometimes break and go down without us even noticing?
+The one device that we always carry is undoubtedly our smartphone.
+
+In today's world, the one device we always have with us is undoubtedly our smartphone, and we already rely on it for some of our most important communications. Why then, instead of relying on complex setups made of extra machines and controls, don't we just use our smartphones for some of our monitoring as well?
 
 Our smartphone:
 
-- Is a full-fledged computer in its own right, with a computing power that just a few years ago we would have dreamed of having on our desktop computers.
+- Is a full-fledged computer in its own right, with a computing power that only a few years ago we would have dreamed of on our desktop.
 - Is the first device we'll notice when it's down, and it's likely the first device we'll try to bring back up ASAP.
 - Is already what we use to receive our most important notifications and alerts.
 - If it's offline, we're most probably offline too, so we won't receive any other external alert anyway.
@@ -17,7 +19,7 @@ Also:
 
 - Many monitoring scripts are simple and don't require many resources to run.
 - It's a "decentralized" solution: in a team, multiple people can run it independently and simultaneously on their devices, reducing the risk of a single point of failure.
-- KISS forever!
+- KISS!
 
 ## How it Works
 
